@@ -13,10 +13,10 @@ var laterYears = myAge - 2;
 //Human later years in cat years
 laterYears *= 4;
 
-//Human age copverted to cat years
-var myAgeInCatYears = earlyYears + laterYears
+//Human age converted to cat years
+var myAgeInCatYears = earlyYears + laterYears;
 
 //Human name
-var myName = 'Joe'
+var myName = 'Joe';
 
 console.log('My name is ' + myName + '. I am ' + myAge + ' years old in human years, which is ' + myAgeInCatYears + ' years old in cat years.')
