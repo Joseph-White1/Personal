@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>
+            Fluid Measurement Converter
+        </title>
+        <link rel = "stylesheet" href = "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+        <script type = 'text/javascript' src = 'PP3-3ElectricityCalculationsInputLinkedApp.js'></script>
+        <script src = "https://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src = "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+    </head>
+
+    <body>
+        <div data-role = "page">
+
+            <div data-role = "navbar">
+                <ul>
+                    <li>
+                        <a href="information.html">
+                            Information
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html" class="ui-btn-active ui-state-persist">
+                            Interface
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div data-role = header>
+                Calculation for speaker requirements
+            </div>
+
+            <div data-role = "content">
+                <label for = "power">
+                    Enter the wattage:
+                </label>
+                <input type = 'range' name = 'power' id = 'power' min = '10' max = '4000' step = '10'>
+                <br>
+                <label for = "impedance">
+                    Enter the resistance:
+                </label>
+                <input type = 'range' name = 'impedance' id = 'impedance' min = '1' max = '20'>
+                <br>
+                
+                <button onclick = "display();">
+                    Display entered data
+                </button>
+                <br>
+                <table id = "data">
+                    <tr>
+                        <td>
+                            Power Entered:
+                        </td>
+                        <td id = 'powerDisplay'>
+                            0
+                        </td>
+                        <td>
+                            Watts
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Impedance Entered:
+                        </td>
+                        <td id = 'impedanceDisplay'>
+                            0
+                        </td>
+                        <td>
+                            Ohms
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div data-role = footer>
+                <small>
+                    Speaker requirement calculator
+                </small>
+            </div>
+
+        </div>
+    </body>
+
+</html>

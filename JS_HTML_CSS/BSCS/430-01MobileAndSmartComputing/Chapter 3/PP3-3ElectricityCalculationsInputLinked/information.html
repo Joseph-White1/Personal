@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>
+            Electricity Calculations
+        </title>
+    </head>
+
+    <body>
+        <div data-role = "navbar">
+            <ul>
+                <li>
+                    <a href="information.html" class="ui-btn-active ui-state-persist">
+                        Information
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html">
+                        Interface
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <h1>
+            The Relationship of Electricity's Elements
+        </h1>
+
+        <h2>
+            Ohm's Law
+        </h2>
+
+        <p>
+            Ohm's Law states that the current flowing through a conductor is directly proportional to the voltage applied across it and inversely proportional to the resistance of the conductor. <br>
+        </p>
+
+        Mathematically, it can be expressed as: <br>
+        <em> i </em> = <em> v </em>/<em> r </em> <br>
+        <ul>
+            Where:
+            <li>
+                <em> i </em> represents the current flowing through the conductor (in amperes, <em> A </em>).
+            </li>
+            <li>
+                <em> v </em> represents the voltage across the conductor (in volts, <em> V </em>).
+            </li>
+            <li>
+                <em> r </em> represents the impedance, or resistance, of the conductor (in ohms, <em> Ω </em>).
+            </li>
+        </ul>
+        
+        <p>
+            According to Ohm's Law, if the voltage remains constant and the resistance increases, the current flowing through the circuit decreases. <br>
+            Conversely, if the resistance remains constant and the voltage increases, the current flowing through the circuit increases. <br>
+            The amount of electricity consumed in a circuit can be determined by the power equation: <br>
+        </p>
+
+        <em> p </em> = <em> i </em> * <em> v </em> <br>
+        <ul>
+            Where:
+            <li>
+                <em> p </em> relates the power consumed (measured in watts, <em> W </em>) to <em> i</em>, and <em> v</em>.
+            </li>
+        </ul>
+
+        <p>
+            This equation shows the direct proportionality between <em> p</em>, <em> i </em> and <em> v</em>. <br>
+        </p>
+
+        <h2>
+            The Relationship Demonstrated Through Speaker Operation 
+        </h2>
+
+        <p>
+            When an audio signal is applied to a speaker, it generates an alternating current (AC) that flows through the voice coil (the speaker's impedance). <br>
+            The electricity a speaker consumes is directly related to the power it dissipates, which is determined by the voltage across the speaker and the current flowing through it. <br>
+        </p>
+        These formulas can be used to find the required <em> i </em> and <em> v </em> for a specific speaker according it its specification: <br>
+        <em> p </em> = <em> i <sup> 2 </sup> </em> * <em> r </em> <br>
+        <em> p </em> = <em> v <sup> 2 </sup> </em> / <em> r </em> <br>
+        <p>
+            Applying these formulas to these three speakers:
+            <ol>
+                <li>
+                    Focal Utopia M TBM (tweeter)
+                </li>
+                <li>
+                    Focal Utopia M 3.5WM (mid-range)
+                </li>
+                <li>
+                    JL Audio 10W7AE-3 (subwoofer)
+                </li>
+            </ol>
+            gives us the required minimum and maximum <em> i </em> and <em> v</em>, as illustared in this table:
+        </p>
+        
+        <div>
+            <table border = "1">
+                <tr>
+                    <th>
+                        Unit
+                    </th>
+                    <th>
+                        Speaker #1
+                    </th>
+                    <th>
+                        Speaker #2
+                    </th>
+                    <th>
+                        Speaker #3
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <em> p </em>
+                    </td>
+                    <td>
+                        min. 20<em>W</em> | max. 200<em>W</em>
+                    </td>
+                    <td>
+                        min. 50<em>W</em> | max. 100<em>W</em>
+                    </td>
+                    <td>
+                        min. 300<em>W</em> | max. 750<em>W</em>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <em> i </em>
+                    </td>
+                    <td>
+                        <mark>
+                            min. 2.24<em>A</em> | max. 7.07<em>A</em>
+                        </mark>
+                    </td>
+                    <td>
+                        <mark>
+                            min. 3.54<em>A</em> | max. 5<em>A</em>
+                        </mark>
+                    </td>
+                    <td>
+                        <mark>
+                            min. 10<em>A</em> | max. 15.81<em>A</em>
+                        </mark>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <em> v </em>
+                    </td>
+                    <td>
+                        <mark>
+                            min. 8.94<em>V</em> | max. 28.28<em>V</em>
+                        </mark>
+                    </td>
+                    <td>
+                        <mark>
+                            min. 14.14<em>V</em> | max. 20<em>V</em>
+                        </mark>
+                    </td>
+                    <td>
+                        <mark>
+                            min. 30<em>V</em> | max. 47.34<em>V</em>
+                        </mark>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <em> r </em>
+                    </td>
+                    <td>
+                        4<em>Ω</em>
+                    </td>
+                    <td>
+                        4<em>Ω</em>
+                    </td>
+                    <td>
+                        3<em>Ω</em>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <mark>
+            <em> *calculated data* </em>
+        </mark>
+    </body>
+
+</html>

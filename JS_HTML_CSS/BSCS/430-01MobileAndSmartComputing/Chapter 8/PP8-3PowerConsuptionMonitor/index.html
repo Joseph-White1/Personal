@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang = en>
+
+<head>
+  <title> Power Consumption Monitor </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+  <link rel="stylesheet" href="css/bootstrap.css"/>
+  <link rel="stylesheet" href="css/DataTable.css"/>
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+  <div data-role="page" id="pageHome">
+    <div data-role="header" data-theme="b">
+      <a href="#pageAbout" data-theme="b" data-role="button" data-icon="info" data-iconpos="right" data-inline="true"> About </a>
+      <h1> Power Consumption Monitor </h1>
+    </div>
+    <div data-role="content" align="center">
+      Email:
+      <input type="email" id="email" placeholder="name@email.com"></input>
+      Password:
+      <input type="password" id="passcode" placeholder="Pasccode"></input>
+
+      <div data-role="controlgroup" id="numKeyPad">
+        <div>
+          <a href="#pageUserInfo" data-role="button" id="btnCreateUser" data-icon="user" data-inline="true"> New User </a>
+        </div>
+
+        <div data-role="controlgroup" data-type="horizontal">
+          <a data-role="button" onclick="addValueToPassword(7)"> 7 </a>
+          <a data-role="button" onclick="addValueToPassword(8)"> 8 </a>
+          <a data-role="button" onclick="addValueToPassword(9)"> 9 </a>
+        </div>
+        <div data-role="controlgroup" data-type="horizontal">
+          <a data-role="button" onclick="addValueToPassword(4)"> 4 </a>
+          <a data-role="button" onclick="addValueToPassword(5)"> 5 </a>
+          <a data-role="button" onclick="addValueToPassword(6)"> 6 </a>
+        </div>
+        <div data-role="controlgroup" data-type="horizontal">
+          <a data-role="button" onclick="addValueToPassword(1)"> 1 </a>
+          <a data-role="button" onclick="addValueToPassword(2)"> 2 </a>
+          <a data-role="button" onclick="addValueToPassword(3)"> 3 </a>
+        </div>
+        <div data-role="controlgroup" data-type="horizontal">
+          <a data-role="button" onclick="addValueToPassword(0)"> 0 </a>
+          <a data-role="button" onclick="addValueToPassword('bksp')" data-icon="delete"> del </a>
+        </div>
+        <div>
+          <a data-role="button" id="btnEnter" type="submit" data-icon="arrow-r" data-iconpos="right" data-inline="true"> Login </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-role="page" id="legalNotice" data-close-btn="none">
+    <div data-role="header" data-theme="b">
+      <h1> Disclaimer </h1>
+    </div>
+    <div data-role="content" align="center">
+      Password must be changed on next page.<br>
+      Do you wish to proceed?<br>
+      <a href="#pageUserInfo" id="noticeYes" data-role="button" data-icon="forward" data-iconpos="right" data-mini="false" data-inline="true"> Yes </a>
+    </div>
+  </div>
+
+  <div data-role="page" id="pageAbout">
+    <div data-role="header" data-theme="b">
+      <a href="#pageHome" data-role="button" data-theme="b" data-icon="home" data-iconpos="left"> Home </a>
+      <h1> About </h1>
+    </div>
+    <div data-role="content">
+      Page under construction
+    </div>
+  </div>
+
+  <div data-role="page" id="pageMenu">
+    <div data-role="header" data-theme="b">
+      <a href="#pageMenu" data-role="button" data-theme="b" data-icon="bars" data-iconpos="left" data-inline="true"> Menu </a>
+      <a href="#pageAbout" data-role="button" data-theme="b" data-icon="info" data-iconpos="right" data-inline="true"> About </a>
+      <h1> Power Consumption Monitor </h1>
+    </div>
+    <div data-role="content">
+      <div data-role="controlgroup">
+        <a href="#pageUserInfo" data-role="button"> User Information </a>
+        <a href="#pagePlantInfo" data-role="button"> Plant Information </a>
+        <a href="#pageData" data-role="button"> Data </a>
+        <a href="#pageGraph" data-role="button"> Graph </a>
+        <a href="#pageAdvice" data-role="button"> Suggestions </a>
+        <a href="#pageSync" data-role="button"> Sync </a>
+      </div>
+    </div>
+  </div>
+
+  <div data-role="page" id="pageUserInfo">
+    <div data-role="header" data-theme="b">
+      <a href="#pageMenu" data-role="button" data-theme="b" data-icon="bars" data-iconpos="left" data-inline="true"> Menu </a>
+      <a href="#pageAbout" data-role="button" data-theme="b" data-icon="info" data-iconpos="right" data-inline="true"> About </a>
+      <h1> User Information </h1>
+    </div>
+    <div data-role="content">
+      <form id="frmUserForm" action="">
+        <div data-role="fieldcontain">
+          <div>
+            <label for="txtEmail"> Email: </label>
+          </div>
+          <input type="email" placeholder="name@example.com" name="txtEmail" data-mini="false" id="txtEmail" value="" required>
+        </div>
+        <div data-role="fieldcontain">
+          <div>
+            <label for="txtFirstName"> First Name: </label>
+          </div>
+          <input type="text" placeholder="First Name" name="txtFirstName" data-mini="false" id="txtFirstName" value="" required>
+        </div>
+        <div data-role="fieldcontain">
+          <div>
+            <label for="txtLastName"> Last Name: </label>
+          </div>
+          <input type="text" placeholder="Last Name" name="txtLastName" data-mini="false" id="txtLastName" value="" required>
+        </div>
+        <div data-role="fieldcontain">
+          <div>
+            <label for="datBirthdate"> Birthdate: </label>
+          </div>
+          <input type="date" name="datBirthdate" data-mini="false" id="datBirthdate" value="" required>
+        </div>
+        <div data-role="fieldcontain">
+          <div>
+            <label for="changePassword"> Edit Password: </label>
+          </div>
+          <input type="password" placeholder="New Password" name="changePassword" data-mini="false" id="changePassword" value="" required>
+        </div>
+        <input type="submit" id="btnUserUpdate" data-icon="check" data-iconpos="left" value="Update" data-inline="true">
+      </form>
+    </div>
+  </div>
+
+  <div data-role="page" id="pagePlantInfo">
+    <div data-role="header" data-theme="b">
+      <a href="#pageMenu" data-role="button" data-theme="b" data-icon="bars" data-iconpos="left" data-inline="true"> Menu </a>
+      <a href="#pageAbout" data-role="button" data-theme="b" data-icon="info" data-iconpos="right" data-inline="true"> About </a>
+      <h1> Plant Information </h1>
+    </div>
+    <div data-role="content">
+      <form id="frmPlantForm" action="">
+        <div data-role="fieldcontain">
+          <div>
+						<label for="txtPlantID"> Plant ID Number: </label>
+					</div>
+          <input type="text" placeholder="Identification Number" name="txtPlantID" data-mini="false" id="txtPlantID" value="" required>
+        </div>
+        <div data-role="fieldcontain">
+          <div>
+						<label for="datInstDate"> Date of Installation: </label>
+					</div>
+          <input type="date" placeholder="mm/dd/yyyy" name="datInstDate" data-mini="false" id="datInstDate" value="" required>
+        </div>
+        <input type="submit" id="btnPlantUpdate" data-icon="check" data-iconpos="left" value="Update" data-inline="true">
+      </form>
+    </div>
+  </div>
+
+  <div data-role="page" id="pageData">
+    <div data-role="header" data-theme="b">
+      <a href="#pageMenu" data-role="button" data-theme="b" data-icon="bars" data-iconpos="left" data-inline="true"> Menu </a>
+      <a href="#pageAbout" data-role="button" data-theme="b" data-icon="info" data-iconpos="right" data-inline="true"> About </a>
+      <h1> Data </h1>
+    </div>
+    <div data-role="content">
+      <!-- User's Information Section -->
+      <div data-role="fieldcontain" id="divUserSection"></div>
+      <!-- Plant's Information Section -->
+      <div data-role="fieldcontain" id="divPlantSection"></div>
+      <h3 align="center"> Records </h3>
+      <div data-role="fieldcontain">
+        <!-- Data Table -->
+        <table id="tblData" class="ui-responsive table-stroke"></table>
+      </div>
+      <div data-role="fieldcontain">
+        <a href="#pageNewDataForm" id="btnAddData" data-role="button" data-icon="plus"> New Entry </a>
+        <a href="#" data-role="button" id="btnClearHistory" data-icon="delete"> Clear History </a>
+      </div>
+    </div>
+  </div>
+
+  <div data-role="page" id="pageNewDataForm">
+    <div data-role="header" data-theme="b">
+      <a href="#pageMenu" data-role="button" data-theme="b" data-icon="bars" data-iconpos="left" data-inline="true"> Menu </a>
+      <a href="#pageAbout" data-role="button" data-theme="b" data-icon="info" data-iconpos="right" data-inline="true"> About </a>
+      <h1> New Data </h1>
+    </div>
+    <div data-role="content">
+      <form id="frmNewDataForm" action="">
+        <div data-role="fieldcontain">
+          <div data-role="fieldcontain">
+            <div>
+              <label for="datInputDate"> Date: </label>
+            </div>
+            <input type="date" name="datInputDate" data-mini="false" id="datInputDate" value="">
+          </div>
+          <div data-role="fieldcontain">
+            <div>
+              <label for="txtKWH"> Power Consumption: </label>
+            </div>
+            <input type="number" step="0.01" placeholder="kWh" name="txtKWH" data-mini="false" id="txtKWH" value="">
+          </div>
+        </div>
+        <input type="submit" id="btnSubmitData" text-align="center" value="Add New Data" data-icon="plus" data-iconpos="left" data-inline="true">
+      </form>
+    </div>
+  </div>
+
+  <div data-role="page" id="pageGraph" class="test">
+    <div data-role="header" data-theme="b">
+      <a href="#pageMenu" data-role="button" data-theme="b" data-icon="bars" data-iconpos="left" data-inline="true"> Menu </a>
+      <a href="#pageAbout" data-role="button" data-theme="b" data-icon="info" data-iconpos="right" data-inline="true"> About </a>
+      <h1> Analysis </h1>
+    </div>
+    <div class="panel panel-success">
+      <div class="panel-heading" align="center">
+        <h3 class="panel-title"> Power Consumption Metric </h3>
+      </div>
+      <div class="panel-body" align="center">
+        <canvas id="GraphCanvas" width="500" height="500" style="border:1px solid #000000;"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div data-role="page" id="pageAdvice">
+    <div data-role="header" data-theme="b">
+      <a href="#pageMenu" data-role="button" data-theme="b" data-icon="bars" data-iconpos="left" data-inline="true"> Menu </a>
+      <a href="#pageAbout" data-role="button" data-theme="b" data-icon="info" data-iconpos="right" data-inline="true"> About </a>
+      <h1> Suggestions </h1>
+    </div>
+    <div data-role="content" align="center">
+      <canvas id="AdviceCanvas" width="500" height="500" style="border:1px solid #000000;"></canvas>
+    </div>
+  </div>
+
+  <div data-role="page" id="pageSync">
+    <div data-role="header" data-theme="b">
+      <a href="#pageMenu" data-role="button" data-theme="b" data-icon="bars" data-iconpos="left" data-inline="true"> Menu </a>
+      <a href="#pageAbout" data-role="button" data-theme="b" data-icon="info" data-iconpos="right" data-inline="true"> About </a>
+      <h1> Sync Account Information </h1>
+    </div>
+    <div data-role="content">
+      <div data-role="controlgroup">
+        <a id="btnUpload" data-role="button"> Upload Records </a>
+        <a id="btnDownload" data-role="button"> Download Records (Do Not Overwrite Local Data) </a>
+        <a id="btnDownloadOverwrite" data-role="button"> Download Records (Overwrite Local Data) </a>
+      </div>
+    </div>
+  </div>
+	
+  <script src="scripts/Navigation.js"></script>
+  <script src="scripts/UserForm.js"></script>
+  <script src="scripts/PlantForm.js"></script>
+  <script src="scripts/pageLoader.js"></script>
+  <script src="scripts/Table.js"></script>
+  <script src="scripts/GraphAnimate.js"></script>
+  <script src="scripts/Sync.js"></script>
+  
+  <script src="scripts/RGraph.common.core.js"></script>
+  <script src="scripts/RGraph.common.dynamic.js"></script>
+  <script src="scripts/RGraph.common.effects.js"></script>
+  <script src="scripts/RGraph.cornergauge.js"></script>
+  <script src="scripts/RGraph.hprogress.js"></script>
+  <script src="scripts/RGraph.line.js"></script>
+
+</body>
+
+</html>

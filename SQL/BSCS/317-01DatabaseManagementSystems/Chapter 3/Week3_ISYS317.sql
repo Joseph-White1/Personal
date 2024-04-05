@@ -1,0 +1,48 @@
+CREATE TABLE CUSTOMER
+(
+    CustomerNumber          NUMBER              NOT NULL PRIMARY KEY AUTO INCREMENT,
+    CustomerLastName        VARCHAR2(35)        NOT NULL,
+    CustomerFirstName       VARCHAR2(35)        NOT NULL,
+    Phone                   VARCHAR2(12)        NULL
+);
+CREATE TABLE COURSE
+(
+    CourseNumber            NUMBER              NOT NULL PRIMARY KEY AUTO INCREMENT,
+    Course                  VARCHAR2(35)        NOT NULL,
+    CourseDate              DATE                NOT NULL,
+    Fee                     NUMBER(6,2)         NOT NULL
+);
+CREATE TABLE ENROLLMENT
+(
+    CustomerNumber          NUMBER              NOT NULL,
+    CourseNumber            NUMBER              NOT NULL,
+    AmountPaid              NUMBER(6,2)         NOT NULL DEFAULT 0,
+    PRIMARY KEY (CustomerNumber, CourseNumber),
+    CONSTRAINT ENR_CUST_FK FOREIGN KEY(CustomerNumber) REFERENCES CUSTOMER(CustomerNumber) ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT ENR_COUR_FK FOREIGN KEY(CourseNumber) REFERENCES COURSE(CourseNumber) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+/* CUSTOMER DATA */
+INSERT INTO CUSTOMER (CustomerLastName, CustomerFirstName, Phone) VALUES ('Johnson', 'Ariel', '206-567-1234');
+INSERT INTO CUSTOMER VALUES ('Green', 'Robin', '425-678-8765');
+INSERT INTO CUSTOMER VALUES ('Jackson', 'Charles', '360-789-3456');
+INSERT INTO CUSTOMER VALUES ('Pearson', 'Jeffery', '206-567-2345');
+INSERT INTO CUSTOMER VALUES ('Sears', 'Miguel', '360-789-4567');
+INSERT INTO CUSTOMER VALUES ('Kyle', 'Leah', '425-678-7654');
+INSERT INTO CUSTOMER VALUES ('Myers', 'Lynda', '360-789-5678');
+
+/* COURSE DATA */
+INSERT INTO COURSE (Course, CourseDate, Fee) VALUES ('Adv Pastels', '10/1/2017', '$500.00');
+INSERT INTO COURSE VALUES ('Beg Oils', '9/15/2017', '$350.00');
+INSERT INTO COURSE VALUES ('Int Pastels', '3/15/2017', '$350.00');
+INSERT INTO COURSE VALUES ('Beg Oils', '10/15/2017', '$350.00');
+INSERT INTO COURSE VALUES ('Adv Pastels', '11/15/2017', '$500.00');
+
+/* ENROLLMENT DATA */
+INSERT INTO ENROLLMENT (AmountPaid) VALUES (250.00);
+INSERT INTO ENROLLMENT VALUES (350.00);
+INSERT INTO ENROLLMENT VALUES (350.00);
+INSERT INTO ENROLLMENT VALUES (500.00);
+INSERT INTO ENROLLMENT VALUES (500.00);
+INSERT INTO ENROLLMENT VALUES (350.00);
+INSERT INTO ENROLLMENT VALUES (250.00);

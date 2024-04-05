@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>
+            Fluid Measurement Converter
+        </title>
+        <link rel = "stylesheet" href = "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+        <script type = 'text/javascript' src = 'PE3-2FluidConverterDataApp.js'></script>
+        <script src = "https://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src = "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+    </head>
+
+    <body>
+        <div data-role = "page">
+
+            <div data-role = header>
+                Converting fluid measurements
+            </div>
+
+            <div data-role = "content">
+                <label for = "gallons">
+                    Enter the quantity in gallons:
+                </label>
+                <input type = 'range' name = 'gallons' id = 'gallons' min = '0' max = '99'>
+                <br>
+                <button onclick = "display();">
+                    Display
+                </button>
+                <br>
+                <table id = "data">
+                    <tr>
+                        <td>
+                            Quantity Entered:
+                        </td>
+                        <td id = 'quantityDisplay'>
+                            0
+                        </td>
+                        <td>
+                            gallons
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div data-role = footer>
+                <small>
+                    Fluid quantity converter
+                </small>
+            </div>
+
+        </div>
+    </body>
+
+</html>
